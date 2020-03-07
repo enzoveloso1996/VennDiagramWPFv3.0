@@ -27,9 +27,11 @@ namespace VenDiagramWPFv2._0
             InitializeComponent();
         }
 
+
         public string[] a = new string[20];
         public string[] b = new string[20];
         public string[] c = new string[20];
+
 
         public void AddToA(object sender, RoutedEventArgs e)
         {
@@ -46,10 +48,12 @@ namespace VenDiagramWPFv2._0
             }
         }
 
+
         private void SaveA(object sender, RoutedEventArgs e)
         {
             ListboxA.Items.RemoveAt(ListboxA.Items.Count - 1);
         }
+
 
         private void AddToB(object sender, RoutedEventArgs e)
         {
@@ -66,10 +70,13 @@ namespace VenDiagramWPFv2._0
             }
         }
 
+
         private void SaveB(object sender, RoutedEventArgs e)
         {
            ListboxB.Items.RemoveAt(ListboxB.Items.Count - 1);
         }
+
+
         private void AddToC(object sender, RoutedEventArgs e)
         {
             int index = 0;
@@ -83,6 +90,39 @@ namespace VenDiagramWPFv2._0
             {
                 MessageBox.Show("You have already 20 elements");
             }
+        }
+
+        
+        private void SaveC(object sender, RoutedEventArgs e)
+        {
+            ListboxC.Items.RemoveAt(ListboxB.Items.Count - 1);
+        }
+
+        private void AddSetC(object sender, RoutedEventArgs e)
+        {
+            if (SetC.Visibility == Visibility.Collapsed)
+            {
+                SetC.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SetC.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Reset(object sender, RoutedEventArgs e)
+        {
+            ElementA.Text = "";
+            ElementB.Text = "";
+            ElementC.Text = "";
+            ListboxA.Items.Clear();
+            ListboxB.Items.Clear();
+            ListboxC.Items.Clear();
+            ListboxOutputA.Items.Clear();
+            ListboxOutputB.Items.Clear();
+            //ListboxOutputC.Items.Clear();
+            ListboxOutput.Items.Clear();
+            Diagram.Source = new BitmapImage(new Uri(@"\Resources\", UriKind.Relative));
         }
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

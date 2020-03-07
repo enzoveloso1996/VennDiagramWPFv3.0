@@ -27,7 +27,7 @@
                     Margin="0,0,1,0" Background="#FF1D6C61" BorderBrush="#FF1D6C61" FontSize="20"/>
         </Grid>
         <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Vertical" >
+            <StackPanel Orientation="Vertical">
                 <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}"><Run Text="Set A"/></TextBlock>
                 <ListBox x:Name="ListboxA" Width="auto" Height="50"
                      Background="{x:Null}" Margin="0,0,0,10" 
@@ -132,14 +132,14 @@
                     <StackPanel Orientation="Horizontal" Width="300" Margin="0,0,0,10">
                         <TextBox x:Name="ElementC" materialDesign:HintAssist.Hint="Enter elements"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             Width="230"
+                             Width="190"
                              Height="50"
                              Margin="0,0,15,0"
                              materialDesign:HintAssist.Foreground="#FF1D6C61"
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
                              VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16"/>
                         <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
-                            Width="40" Height="40" Background="#FF1D6C61"
+                            Width="40" Height="40" Background="#FF1D6C61" Margin="0,0,10,0"
                             BorderBrush="{x:Null}" Click="AddToC">
                             <materialDesign:PackIcon
                             Kind="Add"
@@ -247,7 +247,7 @@
                     </materialDesign:Card>
                     <Grid Width="300">
                         <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                            Height="50"
+                            Height="50" Click="Reset"
                             materialDesign:ButtonAssist.CornerRadius="25" Background="#FF1D6C61" BorderBrush="#FF1D6C61">
                             <TextBlock Text="Reset all" />
                         </Button>
