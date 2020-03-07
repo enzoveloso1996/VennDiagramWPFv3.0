@@ -95,8 +95,8 @@ namespace VenDiagramWPFv2._0
                 ListboxOutputA.Items.Add("A = {");
                 foreach (var count in ListboxA.Items)
                 {
-                     ListboxOutput.Items.Add(count);
-                     ListboxOutput.Items.Add(",");
+                     ListboxOutputA.Items.Add(count);
+                     ListboxOutputA.Items.Add(",");
                 }
                 ListboxOutputA.Items.RemoveAt(ListboxOutputA.Items.Count - 1);
                 ListboxOutputA.Items.Add("}");
@@ -153,8 +153,8 @@ namespace VenDiagramWPFv2._0
                 ListboxOutputA.Items.Add("A = {");
                 foreach (var count in ListboxA.Items)
                 {
-                    ListboxOutput.Items.Add(count);
-                    ListboxOutput.Items.Add(",");
+                    ListboxOutputA.Items.Add(count);
+                    ListboxOutputA.Items.Add(",");
                 }
                 ListboxOutputA.Items.RemoveAt(ListboxOutputA.Items.Count - 1);
                 ListboxOutputA.Items.Add("}");
@@ -195,8 +195,8 @@ namespace VenDiagramWPFv2._0
                 ListboxOutputA.Items.Add("A = {");
                 foreach (var count in ListboxA.Items)
                 {
-                    ListboxOutput.Items.Add(count);
-                    ListboxOutput.Items.Add(",");
+                    ListboxOutputA.Items.Add(count);
+                    ListboxOutputA.Items.Add(",");
                 }
                 ListboxOutputA.Items.RemoveAt(ListboxOutputA.Items.Count - 1);
                 ListboxOutputA.Items.Add("}");
@@ -233,8 +233,8 @@ namespace VenDiagramWPFv2._0
                 ListboxOutputA.Items.Add("A = {");
                 foreach (var count in ListboxA.Items)
                 {
-                    ListboxOutput.Items.Add(count);
-                    ListboxOutput.Items.Add(",");
+                    ListboxOutputA.Items.Add(count);
+                    ListboxOutputA.Items.Add(",");
                 }
                 ListboxOutputA.Items.RemoveAt(ListboxOutputA.Items.Count - 1);
                 ListboxOutputA.Items.Add("}");

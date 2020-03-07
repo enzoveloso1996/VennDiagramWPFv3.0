@@ -28,7 +28,7 @@
         </Grid>
         <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical" >
-                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}"><Run Text="{Binding Path=a[0].Value}"/></TextBlock>
+                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}"><Run Text="Set A"/></TextBlock>
                 <ListBox x:Name="ListboxA" Width="auto" Height="50"
                      Background="{x:Null}" Margin="0,0,0,10" 
                      BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
@@ -157,6 +157,7 @@
                 </StackPanel>
                 <Button x:Name="ShowSetC" Style="{StaticResource MaterialDesignRaisedAccentButton}"
                         Content="Add set C"
+                        Click="AddSetC"
                         Width="300"
                         Height="50"
                         materialDesign:RippleAssist.Feedback="#DD000000" Background="#FF1D6C61" BorderBrush="{x:Null}" Foreground="#DDFFFFFF"/>

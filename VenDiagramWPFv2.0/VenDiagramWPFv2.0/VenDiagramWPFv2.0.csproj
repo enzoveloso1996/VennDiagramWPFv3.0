@@ -121,6 +121,11 @@
   <ItemGroup>
     <Resource Include="Resources\Intersection.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Difference.jpg" />
+    <Resource Include="Resources\Difference1.jpg" />
+    <Resource Include="Resources\Union.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.0-ci981\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0-ci981\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
