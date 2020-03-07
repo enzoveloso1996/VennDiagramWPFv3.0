@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenDiagramWPFv2.0", "VenDiagramWPFv2.0\VenDiagramWPFv2.0.csproj", "{DEDFEDE6-0503-46EE-B9FA-4926682611C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEDFEDE6-0503-46EE-B9FA-4926682611C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEDFEDE6-0503-46EE-B9FA-4926682611C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEDFEDE6-0503-46EE-B9FA-4926682611C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEDFEDE6-0503-46EE-B9FA-4926682611C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCC6A18B-E2FB-431A-94C8-7D3CA669F61C}
+	EndGlobalSection
+EndGlobal
