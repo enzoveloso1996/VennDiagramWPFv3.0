@@ -129,7 +129,8 @@ namespace VenDiagramWPFv2._0
             if (Operation.SelectedIndex == 0)
             {
                 //Union
-                Diagram.Source = new BitmapImage(new Uri(@"\Resources\Union.jpg", UriKind.Relative));
+                //Diagram.Source = new BitmapImage(new Uri(@"\Resources\Union.jpg", UriKind.Relative));
+                Diagram.Source = new BitmapImage(new Uri(@"\Resources\89120659_293467738295044_4062733505157660672_n.jpg", UriKind.Relative));
 
                 ListboxOutputA.Items.Clear();
                 ListboxOutputA.Items.Add("A = {");
