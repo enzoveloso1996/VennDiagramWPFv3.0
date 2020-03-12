@@ -103,10 +103,12 @@ namespace VenDiagramWPFv2._0
             if (SetC.Visibility == Visibility.Collapsed)
             {
                 SetC.Visibility = Visibility.Visible;
+                ListboxOutputC.Visibility = Visibility.Visible;
             }
             else
             {
                 SetC.Visibility = Visibility.Collapsed;
+                ListboxOutputC.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -182,6 +184,33 @@ namespace VenDiagramWPFv2._0
                 }
                 ListboxOutput.Items.RemoveAt(ListboxOutput.Items.Count - 1);
                 ListboxOutput.Items.Add("}");
+
+                //With set C
+                if (SetC.Visibility == Visibility.Visible && ListboxOutputC.Visibility == Visibility.Visible)
+                {
+                    ListboxOutputA.Items.Clear();
+                    ListboxOutputA.Items.Add("A = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        ListboxOutputA.Items.Add(count);
+                        ListboxOutputA.Items.Add(",");
+                    }
+                    ListboxOutputA.Items.RemoveAt(ListboxOutputA.Items.Count - 1);
+                    ListboxOutputA.Items.Add("}");
+
+                    ListboxOutputB.Items.Clear();
+                    ListboxOutputB.Items.Add("B = {");
+                    foreach (var count in ListboxB.Items)
+                    {
+                        ListboxOutputB.Items.Add(count);
+                        ListboxOutputB.Items.Add(",");
+                    }
+                    ListboxOutputB.Items.RemoveAt(ListboxOutputB.Items.Count - 1);
+                    ListboxOutputB.Items.Add("}");
+
+                    ListboxOutput.Items.Clear();
+                    ListboxOutput.Items.Add("= {");
+                }
                 
             }
             else if (Operation.SelectedIndex == 1)
@@ -266,7 +295,7 @@ namespace VenDiagramWPFv2._0
             }
             else if (Operation.SelectedIndex == 3)
             {
-                //Symmetrical
+                Symmetrical
                 Diagram.Source = new BitmapImage(new Uri(@"\Resources\Symmetrical.jpg", UriKind.Relative));
 
                 ListboxOutputA.Items.Clear();
@@ -308,7 +337,7 @@ namespace VenDiagramWPFv2._0
                     }
                 }
                 ListboxOutput.Items.RemoveAt(ListboxOutput.Items.Count - 1);
-                ListboxOutput.Items.Add("}");             
+                ListboxOutput.Items.Add("}");
                 //compliment
                 //for (int i = 0; i < ListboxA.Items.Count; i++)
                 //{

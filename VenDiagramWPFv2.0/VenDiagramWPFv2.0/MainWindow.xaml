@@ -346,6 +346,27 @@
                                 </ListBox.ItemsPanel>
                             </ListBox>
                             <ListBox
+                                x:Name="ListboxOutputC"
+                                Width="auto"
+                                Height="50"
+                                Margin="0,0,0,10"
+                                Background="{x:Null}"
+                                BorderBrush="#FF1D6C61"
+                                BorderThickness="1"
+                                Foreground="#FF1D6C61"
+                                Visibility="Collapsed">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0" />
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                            <ListBox
                                 x:Name="ListboxOutput"
                                 Width="auto"
                                 Height="50"
