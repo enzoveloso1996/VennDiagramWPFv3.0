@@ -129,6 +129,12 @@
   <ItemGroup>
     <Resource Include="Resources\89120659_293467738295044_4062733505157660672_n.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="thumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\favicon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.0-ci981\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0-ci981\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
