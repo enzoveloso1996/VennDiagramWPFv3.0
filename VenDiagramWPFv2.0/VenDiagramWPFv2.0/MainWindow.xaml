@@ -1,4 +1,4 @@
-﻿<Window x:Class="VenDiagramWPFv2._0.MainWindow"
+﻿ <Window x:Class="VenDiagramWPFv2._0.MainWindow"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -59,7 +59,7 @@
                          materialDesign:HintAssist.Foreground="#FF1D6C61"
                          materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
                          VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold"/>
-                    <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
+                    <Button x:Name="AddA" Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
                         Width="40" Height="40" 
                         Background="#FF1D6C61" 
                         BorderBrush="{x:Null}" Click="AddToA" Margin="0,0,10,0">
@@ -69,11 +69,16 @@
                                 ToolTip="Add element"
                                 Width="20" Foreground="#DDFFFFFF" />
                     </Button>
-                    <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
+                    <Button x:Name="RemoveA" Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
                         Width="40" Height="40"
-                        Content="Ok"
+                        Click="RemoveToA"
                         Background="#FF1D6C61" 
-                        BorderBrush="{x:Null}" Foreground="#DDFFFFFF" Click="SaveA">
+                        BorderBrush="{x:Null}" Foreground="#DDFFFFFF">
+                        <materialDesign:PackIcon
+                                Kind="Minus"
+                                Height="20"
+                                ToolTip="Add element"
+                                Width="20" Foreground="#DDFFFFFF" />
                     </Button>
                 </StackPanel>
                 <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" HorizontalAlignment="Center" Margin="0,10,0,0" FontWeight="Bold" Foreground="#FF1D6C61"><Run Text="Set B"/></TextBlock>
@@ -101,7 +106,7 @@
                              materialDesign:HintAssist.Foreground="#FF1D6C61"
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
                              VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold"/>
-                    <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    <Button x:Name="AddB" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         Width="40" Height="40" Background="#FF1D6C61"
                         BorderBrush="{x:Null}" Click="AddToB" Margin="0,0,10,0">
                         <materialDesign:PackIcon
@@ -110,12 +115,16 @@
                             ToolTip="Add element"
                             Width="20" Foreground="#DDFFFFFF" />
                     </Button>
-                    <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
+                    <Button x:Name="RemoveB" Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
                         Width="40" Height="40"
-                        Click="SaveB"
-                        Content="Ok"
+                        Click="RemoveToB"
                         Background="#FF1D6C61" 
                         BorderBrush="{x:Null}" Foreground="#DDFFFFFF">
+                        <materialDesign:PackIcon
+                                Kind="Minus"
+                                Height="20"
+                                ToolTip="Add element"
+                                Width="20" Foreground="#DDFFFFFF" />
                     </Button>
                 </StackPanel>
                 <StackPanel x:Name="SetC" Orientation="Vertical" Visibility="Collapsed">
@@ -126,7 +135,7 @@
                      BorderThickness="1" FontSize="16" FontWeight="Bold">
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem">
-                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="Padding" Value="2"/>
                             </Style>
                         </ListBox.ItemContainerStyle>
                         <ListBox.ItemsPanel>
@@ -144,7 +153,7 @@
                              materialDesign:HintAssist.Foreground="#FF1D6C61"
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
                              VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold"/>
-                        <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        <Button x:Name="AddC" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                                 Width="40" Height="40" Background="#FF1D6C61"
                                 BorderBrush="{x:Null}" Click="AddToC" Margin="0,0,10,0">
                             <materialDesign:PackIcon
@@ -153,12 +162,16 @@
                             ToolTip="Add element"
                             Width="20" Foreground="#DDFFFFFF" />
                         </Button>
-                        <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
+                        <Button x:Name="RemoveC" Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
                             Width="40" Height="40"
-                            Click="SaveC"
-                            Content="Ok"
+                            Click="RemoveToC"
                             Background="#FF1D6C61" 
                             BorderBrush="{x:Null}" Foreground="#DDFFFFFF">
+                            <materialDesign:PackIcon
+                                Kind="Minus"
+                                Height="20"
+                                ToolTip="Add element"
+                                Width="20" Foreground="#DDFFFFFF" />
                         </Button>
                     </StackPanel>
                 </StackPanel>
@@ -254,6 +267,21 @@
                             </ListBox.ItemsPanel>
                         </ListBox>
                         <ListBox x:Name="ListboxOutput" Width="auto" Height="50"
+                                Background="{x:Null}" Margin="0,0,0,10" Visibility="Collapsed"
+                                BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                BorderThickness="1" FontSize="16" FontWeight="Bold">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Padding" Value="0"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                        <ListBox x:Name="ListboxOutput2" Width="auto" Height="50"
                                 Background="{x:Null}" Margin="0,0,0,10" 
                                 BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
                                 BorderThickness="1" FontSize="16" FontWeight="Bold">

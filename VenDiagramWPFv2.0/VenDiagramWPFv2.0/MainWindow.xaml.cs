@@ -57,9 +57,17 @@ namespace VenDiagramWPFv2._0
             }
         }
 
-        private void SaveA(object sender, RoutedEventArgs e)
+        private void RemoveToA(object sender, RoutedEventArgs e)
         {
-            ListboxA.Items.RemoveAt(ListboxA.Items.Count - 1);
+            if(ElementA.Text == "")
+            {
+                MessageBox.Show("Empty set already!");
+            }
+            else
+            {
+                ListboxA.Items.RemoveAt(ListboxA.Items.Count - 1);
+            }
+           
         }
 
         //B
@@ -86,9 +94,17 @@ namespace VenDiagramWPFv2._0
             }
         }
 
-        private void SaveB(object sender, RoutedEventArgs e)
+        private void RemoveToB(object sender, RoutedEventArgs e)
         {
-           ListboxB.Items.RemoveAt(ListboxB.Items.Count - 1);
+            if (ElementB.Text == "")
+            {
+                MessageBox.Show("Empty set already!");
+            }
+            else
+            {
+                ListboxB.Items.RemoveAt(ListboxB.Items.Count - 1);
+            }
+            
         }
 
         //C
@@ -115,9 +131,17 @@ namespace VenDiagramWPFv2._0
             }
 
         }
-        private void SaveC(object sender, RoutedEventArgs e)
+        private void RemoveToC(object sender, RoutedEventArgs e)
         {
-            ListboxC.Items.RemoveAt(ListboxB.Items.Count - 1);
+            if (ElementC.Text == "")
+            {
+                MessageBox.Show("Empty set already!");
+            }
+            else
+            {
+                ListboxC.Items.RemoveAt(ListboxC.Items.Count - 1);
+            }
+            
         }
 
         //To add set C
@@ -127,11 +151,13 @@ namespace VenDiagramWPFv2._0
             {
                 SetC.Visibility = Visibility.Visible;
                 ListboxC.Visibility = Visibility.Visible;
+                ListboxOutputC.Visibility = Visibility.Visible;
             }
             else
             {
                 SetC.Visibility = Visibility.Collapsed;
                 ListboxC.Visibility = Visibility.Collapsed;
+                ListboxOutputC.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -139,6 +165,12 @@ namespace VenDiagramWPFv2._0
         private void Reset(object sender, RoutedEventArgs e)
         {
             ShowSetC.IsEnabled = true;
+            AddA.IsEnabled = true;
+            AddB.IsEnabled = true;
+            AddC.IsEnabled = true;
+            RemoveA.IsEnabled = true;
+            RemoveB.IsEnabled = true;
+            RemoveC.IsEnabled = true;
             ElementA.Text = "";
             ElementB.Text = "";
             ElementC.Text = "";
@@ -153,11 +185,17 @@ namespace VenDiagramWPFv2._0
         }
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!ListboxA.Items.IsEmpty && !ListboxB.Items.IsEmpty)
+            if (!ListboxA.Items.IsEmpty && !ListboxB.Items.IsEmpty && ListboxC.Items.IsEmpty)
             {
                 if (Operation.SelectedIndex == 0)
                 {
                     ShowSetC.IsEnabled = false;
+                    AddA.IsEnabled = false;
+                    AddB.IsEnabled = false;
+                    AddC.IsEnabled = false;
+                    RemoveA.IsEnabled = false;
+                    RemoveB.IsEnabled = false;
+                    RemoveC.IsEnabled = false;
 
                     //Union Venn Diagram
                     Diagram.Source = new BitmapImage(new Uri(@"\Resources\Union.jpg", UriKind.Relative));
@@ -186,7 +224,7 @@ namespace VenDiagramWPFv2._0
 
                     //Output C
                     ListboxOutputC.Items.Clear();
-                    ListboxOutputC.Items.Add("B = {");
+                    ListboxOutputC.Items.Add("C = {");
                     foreach (var count in ListboxC.Items)
                     {
                         ListboxOutputC.Items.Add(count);
@@ -232,6 +270,12 @@ namespace VenDiagramWPFv2._0
                 else if (Operation.SelectedIndex == 1)
                 {
                     ShowSetC.IsEnabled = false;
+                    AddA.IsEnabled = false;
+                    AddB.IsEnabled = false;
+                    AddC.IsEnabled = false;
+                    RemoveA.IsEnabled = false;
+                    RemoveB.IsEnabled = false;
+                    RemoveC.IsEnabled = false;
 
                     //Intersection Venn Diagram
                     Diagram.Source = new BitmapImage(new Uri(@"\Resources\Intersection.jpg", UriKind.Relative));
@@ -290,6 +334,12 @@ namespace VenDiagramWPFv2._0
                 else if (Operation.SelectedIndex == 2)
                 {
                     ShowSetC.IsEnabled = false;
+                    AddA.IsEnabled = false;
+                    AddB.IsEnabled = false;
+                    AddC.IsEnabled = false;
+                    RemoveA.IsEnabled = false;
+                    RemoveB.IsEnabled = false;
+                    RemoveC.IsEnabled = false;
 
                     //Difference Venn Diagram
                     Diagram.Source = new BitmapImage(new Uri(@"\Resources\Difference.jpg", UriKind.Relative));
@@ -344,6 +394,12 @@ namespace VenDiagramWPFv2._0
                 else if (Operation.SelectedIndex == 3)
                 {
                     ShowSetC.IsEnabled = false;
+                    AddA.IsEnabled = false;
+                    AddB.IsEnabled = false;
+                    AddC.IsEnabled = false;
+                    RemoveA.IsEnabled = false;
+                    RemoveB.IsEnabled = false;
+                    RemoveC.IsEnabled = false;
 
                     //Symmetrical Venn Diagram
                     Diagram.Source = new BitmapImage(new Uri(@"\Resources\Symmetrical.jpg", UriKind.Relative));
@@ -412,6 +468,119 @@ namespace VenDiagramWPFv2._0
                     //        ListboxOutput.Items.Add(A + ": " + B);
                     //    }
                     //}
+                }
+            }
+            else if (!ListboxA.Items.IsEmpty && !ListboxB.Items.IsEmpty && !ListboxC.Items.IsEmpty)
+            {
+                if (Operation.SelectedIndex == 0)
+                {
+                    ShowSetC.IsEnabled = false;
+                    AddA.IsEnabled = false;
+                    AddB.IsEnabled = false;
+                    AddC.IsEnabled = false;
+                    RemoveA.IsEnabled = false;
+                    RemoveB.IsEnabled = false;
+                    RemoveC.IsEnabled = false;
+
+                    //Union Venn Diagram
+                    Diagram.Source = new BitmapImage(new Uri(@"\Resources\Union.jpg", UriKind.Relative));
+
+                    //Output A
+                    ListboxOutputA.Items.Clear();
+                    ListboxOutputA.Items.Add("A = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        ListboxOutputA.Items.Add(count);
+                        ListboxOutputA.Items.Add(",");
+                    }
+                    ListboxOutputA.Items.RemoveAt(ListboxOutputA.Items.Count - 1);
+                    ListboxOutputA.Items.Add("}");
+
+                    //Output B
+                    ListboxOutputB.Items.Clear();
+                    ListboxOutputB.Items.Add("B = {");
+                    foreach (var count in ListboxB.Items)
+                    {
+                        ListboxOutputB.Items.Add(count);
+                        ListboxOutputB.Items.Add(",");
+                    }
+                    ListboxOutputB.Items.RemoveAt(ListboxOutputB.Items.Count - 1);
+                    ListboxOutputB.Items.Add("}");
+
+                    //Output C
+                    ListboxOutputC.Items.Clear();
+                    ListboxOutputC.Items.Add("C = {");
+                    foreach (var count in ListboxC.Items)
+                    {
+                        ListboxOutputC.Items.Add(count);
+                        ListboxOutputC.Items.Add(",");
+                    }
+                    ListboxOutputC.Items.RemoveAt(ListboxOutputC.Items.Count - 1);
+                    ListboxOutputC.Items.Add("}");
+
+                    //Union Operation
+                    ListboxOutput.Items.Clear();
+                    ListboxOutput2.Items.Clear();
+                    foreach (var count in ListboxA.Items)
+                    {
+                        if (!ListboxB.Items.Contains(count))
+                        {
+                            ListboxOutput.Items.Add(count);
+                        }
+                    }
+
+                    for (int Count = 0; Count < ListboxA.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxB.Items.Count; Count2++)
+                        {
+                            if (ListboxA.Items[Count].ToString() == ListboxB.Items[Count2].ToString())
+                            {
+                                ListboxOutput.Items.Add(ListboxA.Items[Count].ToString());
+                            }
+                        }
+                    }
+
+                    foreach (var count in ListboxB.Items)
+                    {
+                        if (!ListboxOutput.Items.Contains(count))
+                        {
+                            ListboxOutput.Items.Add(count);
+                        }
+                    }
+
+                    ListboxOutput2.Items.Add("= {");
+                    foreach (var count in ListboxOutput.Items)
+                    {
+                        if (!ListboxC.Items.Contains(count))
+                        {
+                            ListboxOutput2.Items.Add(count);
+                            ListboxOutput2.Items.Add(",");
+                        }
+                    }
+
+                    for (int Count = 0; Count < ListboxOutput.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxC.Items.Count; Count2++)
+                        {
+                            if (ListboxOutput.Items[Count].ToString() == ListboxC.Items[Count2].ToString())
+                            {
+                                ListboxOutput2.Items.Add(ListboxOutput.Items[Count].ToString());
+                                ListboxOutput2.Items.Add(",");
+                            }
+                        }
+                    }
+
+                    foreach (var count in ListboxC.Items)
+                    {
+                        if (!ListboxOutput.Items.Contains(count))
+                        {
+                            ListboxOutput2.Items.Add(count);
+                            ListboxOutput2.Items.Add(",");
+                        }
+                    }
+
+                    ListboxOutput2.Items.RemoveAt(ListboxOutput2.Items.Count - 1);
+                    ListboxOutput2.Items.Add("}");
                 }
             }
             else
