@@ -27,7 +27,7 @@ namespace VenDiagramWPFv2._0
             InitializeComponent();
         }
 
-        //A
+        //Add Element to set A
         public void AddToA(object sender, RoutedEventArgs e)
         {
             if (ListboxA.Items.Count != 20)
@@ -57,6 +57,7 @@ namespace VenDiagramWPFv2._0
             }
         }
 
+        //Remove last element to set A
         private void RemoveToA(object sender, RoutedEventArgs e)
         {
             if(ElementA.Text == "")
@@ -70,7 +71,7 @@ namespace VenDiagramWPFv2._0
            
         }
 
-        //B
+        //Add Element to set B
         private void AddToB(object sender, RoutedEventArgs e)
         {
             if (ListboxB.Items.Count != 20)
@@ -94,6 +95,7 @@ namespace VenDiagramWPFv2._0
             }
         }
 
+        //Remove last element to set B
         private void RemoveToB(object sender, RoutedEventArgs e)
         {
             if (ElementB.Text == "")
@@ -107,7 +109,7 @@ namespace VenDiagramWPFv2._0
             
         }
 
-        //C
+        //Add Element to set C
         private void AddToC(object sender, RoutedEventArgs e)
         {
             if (ListboxC.Items.Count != 20)
@@ -131,6 +133,8 @@ namespace VenDiagramWPFv2._0
             }
 
         }
+
+        //Remove last element to set C
         private void RemoveToC(object sender, RoutedEventArgs e)
         {
             if (ElementC.Text == "")
@@ -144,7 +148,7 @@ namespace VenDiagramWPFv2._0
             
         }
 
-        //To add set C
+        //Add set C
         private void AddSetC(object sender, RoutedEventArgs e)
         {
             if (SetC.Visibility == Visibility.Collapsed)
@@ -183,10 +187,13 @@ namespace VenDiagramWPFv2._0
             ListboxOutput.Items.Clear();
             Diagram.Source = new BitmapImage(new Uri(@"\Resources\", UriKind.Relative));
         }
+
+        //Operations
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!ListboxA.Items.IsEmpty && !ListboxB.Items.IsEmpty && ListboxC.Items.IsEmpty)
             {
+                //Union
                 if (Operation.SelectedIndex == 0)
                 {
                     ShowSetC.IsEnabled = false;
@@ -267,6 +274,8 @@ namespace VenDiagramWPFv2._0
                     ListboxOutput.Items.Add("}");
 
                 }
+
+                //Intersection
                 else if (Operation.SelectedIndex == 1)
                 {
                     ShowSetC.IsEnabled = false;
