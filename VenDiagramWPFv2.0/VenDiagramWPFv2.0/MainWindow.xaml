@@ -267,7 +267,7 @@
                             </ListBox.ItemsPanel>
                         </ListBox>
                         <ListBox x:Name="ListboxOutput" Width="auto" Height="50"
-                                Background="{x:Null}" Margin="0,0,0,10" Visibility="Collapsed"
+                                Background="{x:Null}" Margin="0,0,0,10" Visibility="Visible"
                                 BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
                                 BorderThickness="1" FontSize="16" FontWeight="Bold">
                             <ListBox.ItemContainerStyle>
