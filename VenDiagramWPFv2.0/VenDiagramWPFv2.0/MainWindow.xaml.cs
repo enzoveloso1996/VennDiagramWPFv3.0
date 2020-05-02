@@ -26,6 +26,97 @@ namespace VenDiagramWPFv2._0
         {
             InitializeComponent();
         }
+        //Enter key to add element in set A
+        private void EnterToA(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (ListboxA.Items.Count != 20)
+                {
+                    if (ElementA.Text != "")
+                    {
+                        if (!ListboxA.Items.Contains(ElementA.Text))
+                        {
+                            ListboxA.Items.Add(ElementA.Text);
+                            ElementA.Text = "";
+                        }
+                        else
+                        {
+                            ElementA.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Input an element!");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("You have already 20 elements");
+                    ElementA.Text = "";
+                    ElementA.IsEnabled = false;
+                }
+            }
+        }
+
+        //Enter key to add element in set B
+        private void EnterToB(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (ListboxB.Items.Count != 20)
+                {
+                    if (ElementB.Text != "")
+                    {
+                        if (!ListboxB.Items.Contains(ElementB.Text))
+                        {
+                            ListboxB.Items.Add(ElementB.Text);
+                            ElementB.Text = "";
+                        }
+                        else
+                        {
+                            ElementB.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Input an element!");
+                        ElementB.Text = "";
+                        ElementB.IsEnabled = false;
+                    }
+                }
+            }
+        }
+
+        //Enter key to add element in set C
+        private void EnterToC(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (ListboxC.Items.Count != 20)
+                {
+                    if (ElementC.Text != "")
+                    {
+                        if (!ListboxC.Items.Contains(ElementC.Text))
+                        {
+                            ListboxC.Items.Add(ElementC.Text);
+                            ElementC.Text = "";
+                        }
+                        else
+                        {
+                            ElementC.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Input an element!");
+                        ElementC.Text = "";
+                        ElementC.IsEnabled = false;
+                    }
+                }
+            }
+        }
 
         //Add Element to set A
         public void AddToA(object sender, RoutedEventArgs e)
@@ -54,13 +145,14 @@ namespace VenDiagramWPFv2._0
             {
                 MessageBox.Show("You have already 20 elements");
                 ElementA.Text = "";
+                ElementA.IsEnabled = false;
             }
         }
 
-        //Remove last element to set A
+        //Remove last element from set A
         private void RemoveToA(object sender, RoutedEventArgs e)
         {
-            if(ElementA.Text == "")
+            if(ListboxA.Items.Count < 1)
             {
                 MessageBox.Show("Empty set already!");
             }
@@ -91,14 +183,16 @@ namespace VenDiagramWPFv2._0
                 else
                 {
                     MessageBox.Show("Input an element!");
+                    ElementB.Text = "";
+                    ElementB.IsEnabled = false;
                 }
             }
         }
 
-        //Remove last element to set B
+        //Remove last element from set B
         private void RemoveToB(object sender, RoutedEventArgs e)
         {
-            if (ElementB.Text == "")
+            if (ListboxB.Items.Count < 1)
             {
                 MessageBox.Show("Empty set already!");
             }
@@ -129,15 +223,17 @@ namespace VenDiagramWPFv2._0
                 else
                 {
                     MessageBox.Show("Input an element!");
+                    ElementC.Text = "";
+                    ElementC.IsEnabled = false;
                 }
             }
 
         }
 
-        //Remove last element to set C
+        //Remove last element from set C
         private void RemoveToC(object sender, RoutedEventArgs e)
         {
-            if (ElementC.Text == "")
+            if (ListboxC.Items.Count < 1)
             {
                 MessageBox.Show("Empty set already!");
             }
@@ -156,12 +252,14 @@ namespace VenDiagramWPFv2._0
                 SetC.Visibility = Visibility.Visible;
                 ListboxC.Visibility = Visibility.Visible;
                 ListboxOutputC.Visibility = Visibility.Visible;
+                ForThreeSets.Visibility = Visibility.Visible;
             }
             else
             {
                 SetC.Visibility = Visibility.Collapsed;
                 ListboxC.Visibility = Visibility.Collapsed;
                 ListboxOutputC.Visibility = Visibility.Collapsed;
+                ForThreeSets.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -175,20 +273,25 @@ namespace VenDiagramWPFv2._0
             RemoveA.IsEnabled = true;
             RemoveB.IsEnabled = true;
             RemoveC.IsEnabled = true;
-            ElementA.Text = "";
-            ElementB.Text = "";
-            ElementC.Text = "";
+            ElementA.IsEnabled = true;
+            ElementB.IsEnabled = true;
+            ElementC.IsEnabled = true;
             ListboxA.Items.Clear();
             ListboxB.Items.Clear();
             ListboxC.Items.Clear();
+            AB.Items.Clear();
+            BC.Items.Clear();
+            AC.Items.Clear();
             ListboxOutputA.Items.Clear();
             ListboxOutputB.Items.Clear();
             ListboxOutputC.Items.Clear();
             ListboxOutput.Items.Clear();
+            ListboxOutput2.Items.Clear();
             Diagram.Source = new BitmapImage(new Uri(@"\Resources\", UriKind.Relative));
+            Operation.Text = "--- Select operation ---";
         }
 
-        //Operations
+        //Operations for 2 sets
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!ListboxA.Items.IsEmpty && !ListboxB.Items.IsEmpty && ListboxC.Items.IsEmpty)
@@ -242,7 +345,7 @@ namespace VenDiagramWPFv2._0
 
                     //Union Operation
                     ListboxOutput2.Items.Clear();
-                    ListboxOutput2.Items.Add("= {");
+                    ListboxOutput2.Items.Add("A ∪ B = {");
                     foreach (var count in ListboxA.Items)
                     {
                         if (!ListboxB.Items.Contains(count))
@@ -324,7 +427,7 @@ namespace VenDiagramWPFv2._0
 
                     //Intersection Operation
                     ListboxOutput2.Items.Clear();
-                    ListboxOutput2.Items.Add("= {");
+                    ListboxOutput2.Items.Add("A ∩ B = {");
                     for (int Count = 0; Count < ListboxA.Items.Count; Count++)
                     {
                         for (int Count2 = 0; Count2 < ListboxB.Items.Count; Count2++)
@@ -390,7 +493,7 @@ namespace VenDiagramWPFv2._0
 
                     //Difference Operation
                     ListboxOutput2.Items.Clear();
-                    ListboxOutput2.Items.Add("= {");
+                    ListboxOutput2.Items.Add("A - B = {");
                     foreach (var count in ListboxA.Items)
                     {
                         if (!ListboxB.Items.Contains(count))
@@ -452,7 +555,7 @@ namespace VenDiagramWPFv2._0
 
                     //Symmetrical Operation
                     ListboxOutput2.Items.Clear();
-                    ListboxOutput2.Items.Add("= {");
+                    ListboxOutput2.Items.Add("A ∆ B = {");
                     foreach (var count in ListboxA.Items)
                     {
                         if (!ListboxB.Items.Contains(count))
@@ -532,7 +635,106 @@ namespace VenDiagramWPFv2._0
                     ListboxOutputC.Items.RemoveAt(ListboxOutputC.Items.Count - 1);
                     ListboxOutputC.Items.Add("}");
 
-                    //Union Operation
+                    //A and B
+                    AB.Items.Clear();
+                    AB.Items.Add("A ∪ B = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        if (!ListboxB.Items.Contains(count))
+                        {
+                            AB.Items.Add(count);
+                            AB.Items.Add(",");
+                        }
+                    }
+                    for (int Count = 0; Count < ListboxA.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxB.Items.Count; Count2++)
+                        {
+                            if (ListboxA.Items[Count].ToString() == ListboxB.Items[Count2].ToString())
+                            {
+                                AB.Items.Add(ListboxA.Items[Count].ToString());
+                                AB.Items.Add(",");
+                            }
+                        }
+                    }
+                    foreach (var count in ListboxB.Items)
+                    {
+                        if (!ListboxA.Items.Contains(count))
+                        {
+                            AB.Items.Add(count);
+                            AB.Items.Add(",");
+                        }
+                    }
+                    AB.Items.RemoveAt(AB.Items.Count - 1);
+                    AB.Items.Add("}");
+
+                    //A and B
+                    BC.Items.Clear();
+                    BC.Items.Add("B ∪ C = {");
+                    foreach (var count in ListboxB.Items)
+                    {
+                        if (!ListboxC.Items.Contains(count))
+                        {
+                            BC.Items.Add(count);
+                            BC.Items.Add(",");
+                        }
+                    }
+                    for (int Count = 0; Count < ListboxB.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxC.Items.Count; Count2++)
+                        {
+                            if (ListboxB.Items[Count].ToString() == ListboxC.Items[Count2].ToString())
+                            {
+                                BC.Items.Add(ListboxB.Items[Count].ToString());
+                                BC.Items.Add(",");
+                            }
+                        }
+                    }
+                    foreach (var count in ListboxC.Items)
+                    {
+                        if (!ListboxB.Items.Contains(count))
+                        {
+                            BC.Items.Add(count);
+                            BC.Items.Add(",");
+                        }
+                    }
+                    BC.Items.RemoveAt(BC.Items.Count - 1);
+                    BC.Items.Add("}");
+
+                    //A and C
+                    AC.Items.Clear();
+                    AC.Items.Add("A ∪ C = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        if (!ListboxC.Items.Contains(count))
+                        {
+                            AC.Items.Add(count);
+                            AC.Items.Add(",");
+                        }
+                    }
+                    for (int Count = 0; Count < ListboxA.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxC.Items.Count; Count2++)
+                        {
+                            if (ListboxA.Items[Count].ToString() == ListboxC.Items[Count2].ToString())
+                            {
+                                AC.Items.Add(ListboxA.Items[Count].ToString());
+                                AC.Items.Add(",");
+                            }
+                        }
+                    }
+                    foreach (var count in ListboxC.Items)
+                    {
+                        if (!ListboxA.Items.Contains(count))
+                        {
+                            AC.Items.Add(count);
+                            AC.Items.Add(",");
+                        }
+                    }
+                    AC.Items.RemoveAt(AC.Items.Count - 1);
+                    AC.Items.Add("}");
+
+                    //Union of 3 sets
                     ListboxOutput.Items.Clear();
                     ListboxOutput2.Items.Clear();
                     foreach (var count in ListboxA.Items)
@@ -562,7 +764,7 @@ namespace VenDiagramWPFv2._0
                         }
                     }
 
-                    ListboxOutput2.Items.Add("= {");
+                    ListboxOutput2.Items.Add("A ∪ B ∪ C = {");
                     foreach (var count in ListboxOutput.Items)
                     {
                         if (!ListboxC.Items.Contains(count))
@@ -644,6 +846,57 @@ namespace VenDiagramWPFv2._0
                     ListboxOutputC.Items.RemoveAt(ListboxOutputC.Items.Count - 1);
                     ListboxOutputC.Items.Add("}");
 
+                    //A and B Intersection
+                    AB.Items.Clear();
+                    AB.Items.Add("A ∩ B = {");
+                    for (int Count = 0; Count < ListboxA.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxB.Items.Count; Count2++)
+                        {
+                            if (ListboxA.Items[Count].ToString() == ListboxB.Items[Count2].ToString())
+                            {
+                                AB.Items.Add(ListboxA.Items[Count].ToString());
+                                AB.Items.Add(",");
+                            }
+                        }
+                    }
+                    AB.Items.RemoveAt(AB.Items.Count - 1);
+                    AB.Items.Add("}");
+
+                    //B and C Intersection
+                    BC.Items.Clear();
+                    BC.Items.Add("B ∩ C = {");
+                    for (int Count = 0; Count < ListboxB.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxC.Items.Count; Count2++)
+                        {
+                            if (ListboxB.Items[Count].ToString() == ListboxC.Items[Count2].ToString())
+                            {
+                                BC.Items.Add(ListboxB.Items[Count].ToString());
+                                BC.Items.Add(",");
+                            }
+                        }
+                    }
+                    BC.Items.RemoveAt(BC.Items.Count - 1);
+                    BC.Items.Add("}");
+
+                    //A and C Intersection
+                    AC.Items.Clear();
+                    AC.Items.Add("A ∩ C = {");
+                    for (int Count = 0; Count < ListboxA.Items.Count; Count++)
+                    {
+                        for (int Count2 = 0; Count2 < ListboxC.Items.Count; Count2++)
+                        {
+                            if (ListboxA.Items[Count].ToString() == ListboxC.Items[Count2].ToString())
+                            {
+                                AC.Items.Add(ListboxA.Items[Count].ToString());
+                                AC.Items.Add(",");
+                            }
+                        }
+                    }
+                    AC.Items.RemoveAt(AC.Items.Count - 1);
+                    AC.Items.Add("}");
+
                     //Intersection Operation
                     //ListboxOutput2.Items.Clear();
                     //ListboxOutput2.Items.Add("= {");
@@ -709,6 +962,48 @@ namespace VenDiagramWPFv2._0
                     ListboxOutputC.Items.RemoveAt(ListboxOutputC.Items.Count - 1);
                     ListboxOutputC.Items.Add("}");
 
+                    //A and B Difference
+                    AB.Items.Clear();
+                    AB.Items.Add("A - B = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        if (!ListboxB.Items.Contains(count))
+                        {
+                            AB.Items.Add(count);
+                            AB.Items.Add(",");
+                        }
+                    }
+                    AB.Items.RemoveAt(AB.Items.Count - 1);
+                    AB.Items.Add("}");
+
+                    //B and C Difference
+                    BC.Items.Clear();
+                    BC.Items.Add("B - C = {");
+                    foreach (var count in ListboxB.Items)
+                    {
+                        if (!ListboxC.Items.Contains(count))
+                        {
+                            BC.Items.Add(count);
+                            BC.Items.Add(",");
+                        }
+                    }
+                    BC.Items.RemoveAt(BC.Items.Count - 1);
+                    BC.Items.Add("}");
+
+                    //A and C Difference
+                    AC.Items.Clear();
+                    AC.Items.Add("A - C = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        if (!ListboxC.Items.Contains(count))
+                        {
+                            AC.Items.Add(count);
+                            AC.Items.Add(",");
+                        }
+                    }
+                    AC.Items.RemoveAt(AC.Items.Count - 1);
+                    AC.Items.Add("}");
+
                     //Difference Operation
                     //ListboxOutput2.Items.Clear();
                     //ListboxOutput2.Items.Add("= {");
@@ -771,10 +1066,75 @@ namespace VenDiagramWPFv2._0
                     ListboxOutputC.Items.RemoveAt(ListboxOutputC.Items.Count - 1);
                     ListboxOutputC.Items.Add("}");
 
-                    //Symmetrical Operation
+                    //A and B Symmetrical
+                    AB.Items.Clear();
+                    AB.Items.Add("A ∆ B = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        if (!ListboxB.Items.Contains(count))
+                        {
+                            AB.Items.Add(count);
+                            AB.Items.Add(",");
+                        }
+                    }
+                    foreach (var count in ListboxB.Items)
+                    {
+                        if (!ListboxA.Items.Contains(count))
+                        {
+                            AB.Items.Add(count);
+                            AB.Items.Add(",");
+                        }
+                    }
+                    AB.Items.RemoveAt(AB.Items.Count - 1);
+                    AB.Items.Add("}");
 
+                    //B and C Symmetrical
+                    BC.Items.Clear();
+                    BC.Items.Add("B ∆ C = {");
+                    foreach (var count in ListboxB.Items)
+                    {
+                        if (!ListboxC.Items.Contains(count))
+                        {
+                            BC.Items.Add(count);
+                            BC.Items.Add(",");
+                        }
+                    }
+                    foreach (var count in ListboxC.Items)
+                    {
+                        if (!ListboxB.Items.Contains(count))
+                        {
+                            BC.Items.Add(count);
+                            BC.Items.Add(",");
+                        }
+                    }
+                    BC.Items.RemoveAt(BC.Items.Count - 1);
+                    BC.Items.Add("}");
+
+                    //A and C Symmetrical
+                    AC.Items.Clear();
+                    AC.Items.Add("A ∆ C = {");
+                    foreach (var count in ListboxA.Items)
+                    {
+                        if (!ListboxC.Items.Contains(count))
+                        {
+                            AC.Items.Add(count);
+                            AC.Items.Add(",");
+                        }
+                    }
+                    foreach (var count in ListboxC.Items)
+                    {
+                        if (!ListboxA.Items.Contains(count))
+                        {
+                            AC.Items.Add(count);
+                            AC.Items.Add(",");
+                        }
+                    }
+                    AC.Items.RemoveAt(AC.Items.Count - 1);
+                    AC.Items.Add("}");
+
+                    //Symmetrical of 3 sets
                     ListboxOutput2.Items.Clear();
-                    ListboxOutput2.Items.Add("= {");
+                    ListboxOutput2.Items.Add("A ∆ B ∆ C = {");
                     foreach (var count in ListboxA.Items)
                     {
                         if (!ListboxB.Items.Contains(count))

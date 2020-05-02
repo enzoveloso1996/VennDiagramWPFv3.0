@@ -58,7 +58,7 @@
                          Margin="0,0,10,0"
                          materialDesign:HintAssist.Foreground="#FF1D6C61"
                          materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
-                         VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold"/>
+                         VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold" KeyDown="EnterToA"/>
                     <Button x:Name="AddA" Style="{StaticResource MaterialDesignFloatingActionLightButton}" 
                         Width="40" Height="40" 
                         Background="#FF1D6C61" 
@@ -80,6 +80,10 @@
                                 ToolTip="Add element"
                                 Width="20" Foreground="#DDFFFFFF" />
                     </Button>
+                    <TextBlock x:Name="A" 
+                               Width="35" Height="35" Margin="10,0,0,0"
+                               Text="{Binding ElementName=ListboxA,Path=Items.Count}" FontSize="30" TextAlignment="Center" Foreground="#FF1D6C61" FontWeight="Bold"
+                               />
                 </StackPanel>
                 <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" HorizontalAlignment="Center" Margin="0,10,0,0" FontWeight="Bold" Foreground="#FF1D6C61"><Run Text="Set B"/></TextBlock>
                 <ListBox x:Name="ListboxB" Width="auto" Height="50" 
@@ -105,7 +109,7 @@
                              Margin="0,0,10,0"
                              materialDesign:HintAssist.Foreground="#FF1D6C61"
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
-                             VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold"/>
+                             VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold" KeyDown="EnterToB"/>
                     <Button x:Name="AddB" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                         Width="40" Height="40" Background="#FF1D6C61"
                         BorderBrush="{x:Null}" Click="AddToB" Margin="0,0,10,0">
@@ -126,6 +130,10 @@
                                 ToolTip="Add element"
                                 Width="20" Foreground="#DDFFFFFF" />
                     </Button>
+                    <TextBlock x:Name="B" 
+                               Width="35" Height="35" Margin="10,0,0,0"
+                               Text="{Binding ElementName=ListboxB,Path=Items.Count}" FontSize="30" TextAlignment="Center" Foreground="#FF1D6C61" FontWeight="Bold"
+                               />
                 </StackPanel>
                 <StackPanel x:Name="SetC" Orientation="Vertical" Visibility="Collapsed">
                     <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" HorizontalAlignment="Center" Margin="0,10,0,0" FontWeight="Bold" Foreground="#FF1D6C61"><Run Text="Set C"/></TextBlock>
@@ -152,7 +160,7 @@
                              Margin="0,0,10,0"
                              materialDesign:HintAssist.Foreground="#FF1D6C61"
                              materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
-                             VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold"/>
+                             VerticalAlignment="Center" Foreground="#FF1D6C61" CaretBrush="{x:Null}" BorderBrush="#FF1D6C61" FontSize="16" FontWeight="Bold" KeyDown="EnterToC"/>
                         <Button x:Name="AddC" Style="{StaticResource MaterialDesignFloatingActionLightButton}"
                                 Width="40" Height="40" Background="#FF1D6C61"
                                 BorderBrush="{x:Null}" Click="AddToC" Margin="0,0,10,0">
@@ -173,6 +181,10 @@
                                 ToolTip="Add element"
                                 Width="20" Foreground="#DDFFFFFF" />
                         </Button>
+                        <TextBlock x:Name="C" 
+                               Width="35" Height="35" Margin="10,0,0,0"
+                               Text="{Binding ElementName=ListboxC,Path=Items.Count}" FontSize="30" TextAlignment="Center" Foreground="#FF1D6C61" FontWeight="Bold"
+                               />
                     </StackPanel>
                 </StackPanel>
                 <Button x:Name="ShowSetC" Style="{StaticResource MaterialDesignRaisedAccentButton}"
@@ -194,7 +206,7 @@
                     Content="Venn Diagram"
                     Margin="1,0,0,0" Background="#FF1D6C61" FontSize="20" BorderBrush="#FF1D6C61"/>
             <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="100,0">
-                <ComboBox x:Name="Operation" materialDesign:HintAssist.Hint="--Select Operations--"
+                <ComboBox x:Name="Operation" materialDesign:HintAssist.Hint="--- Select Operation ---"
                           Margin="200,0"
                           VerticalAlignment="Center"
                           materialDesign:TextFieldAssist.UnderlineBrush="#FF1D6C61"
@@ -219,7 +231,7 @@
                                      VerticalAlignment="Center"
                                      Padding="5" Margin="10,10,10,0">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
-                        <TextBlock Text="Output" FontSize="48" HorizontalAlignment="Center" Margin="0" FontWeight="Bold" Foreground="#FF1D6C61"/>
+                        <TextBlock Text="Output" FontSize="30" HorizontalAlignment="Center" Margin="0" FontWeight="Bold" Foreground="#FF1D6C61"/>
                         <ListBox x:Name="ListboxOutputA" Width="auto" Height="50"
                                 Background="{x:Null}" Margin="0,0,0,10" 
                                 BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
@@ -266,8 +278,54 @@
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
                         </ListBox>
+                        <StackPanel x:Name="ForThreeSets" Orientation="Horizontal" Height="50" Width="auto" 
+                                    HorizontalAlignment="Center" Margin="0,0,0,10"
+                                    Visibility="Visible">
+                            <ListBox x:Name="AB" Width="280" Height="auto" Margin="0,0,10,0" 
+                                     BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                     BorderThickness="1" FontSize="16" FontWeight="Bold">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                            <ListBox x:Name="BC" Width="280" Height="auto" Margin="0,0,10,0" 
+                                     BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                     BorderThickness="1" FontSize="16" FontWeight="Bold">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                            <ListBox x:Name="AC" Width="280" Height="auto" Margin="0,0,0,0" 
+                                     BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                     BorderThickness="1" FontSize="16" FontWeight="Bold">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </StackPanel>
                         <ListBox x:Name="ListboxOutput" Width="auto" Height="50"
-                                Background="{x:Null}" Margin="0,0,0,10" Visibility="Visible"
+                                Background="{x:Null}" Margin="0,0,0,10" Visibility="Collapsed"
                                 BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
                                 BorderThickness="1" FontSize="16" FontWeight="Bold">
                             <ListBox.ItemContainerStyle>
