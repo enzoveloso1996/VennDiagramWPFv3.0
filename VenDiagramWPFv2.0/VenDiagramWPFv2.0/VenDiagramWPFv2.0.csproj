@@ -116,24 +116,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Symmetrical.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Intersection.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Difference.jpg" />
-    <Resource Include="Resources\Difference1.jpg" />
-    <Resource Include="Resources\Union.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\89120659_293467738295044_4062733505157660672_n.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="thumbnail.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Difference Two.jpg" />
+    <Resource Include="Resources\Intersection Two.jpg" />
+    <Resource Include="Resources\Symmetrical Three.jpg" />
+    <Resource Include="Resources\Symmetrical Two.jpg" />
+    <Resource Include="Resources\Union Two.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Difference Three.jpg" />
+    <Resource Include="Resources\Intersection Three.jpg" />
+    <Resource Include="Resources\Union Three.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.0-ci981\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0-ci981\build\MaterialDesignThemes.targets')" />

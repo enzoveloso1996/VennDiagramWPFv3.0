@@ -295,6 +295,21 @@
                                     </ItemsPanelTemplate>
                                 </ListBox.ItemsPanel>
                             </ListBox>
+                            <ListBox x:Name="hiddenAB" Width="280" Height="auto" Margin="0,0,10,0" 
+                                     BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                     Visibility="Collapsed"
+                                     BorderThickness="1" FontSize="16" FontWeight="Bold">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
                             <ListBox x:Name="BC" Width="280" Height="auto" Margin="0,0,10,0" 
                                      BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
                                      BorderThickness="1" FontSize="16" FontWeight="Bold">
@@ -309,8 +324,38 @@
                                     </ItemsPanelTemplate>
                                 </ListBox.ItemsPanel>
                             </ListBox>
+                            <ListBox x:Name="hiddenBC" Width="280" Height="auto" Margin="0,0,10,0" 
+                                     BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                     Visibility="Collapsed"
+                                     BorderThickness="1" FontSize="16" FontWeight="Bold">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
                             <ListBox x:Name="AC" Width="280" Height="auto" Margin="0,0,0,0" 
                                      BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                     BorderThickness="1" FontSize="16" FontWeight="Bold">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                            <ListBox x:Name="hiddenAC" Width="280" Height="auto" Margin="0,0,10,0" 
+                                     BorderBrush="#FF1D6C61" Foreground="#FF1D6C61"
+                                     Visibility="Collapsed"
                                      BorderThickness="1" FontSize="16" FontWeight="Bold">
                                 <ListBox.ItemContainerStyle>
                                     <Style TargetType="ListBoxItem">
