@@ -102,3 +102,7 @@ C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.
 C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.0\obj\Debug\VenDiagramWPFv2.0.csproj.CopyComplete
 C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.0\obj\Debug\VenDiagramWPFv2.0.exe
 C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.0\obj\Debug\VenDiagramWPFv2.0.pdb
+C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.0\bin\Debug\VenDiagramWPFv2.0.exe.manifest
+C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.0\bin\Debug\VenDiagramWPFv2.0.application
+C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.0\obj\Debug\VenDiagramWPFv2.0.exe.manifest
+C:\Users\Enzo\source\repos\VennDiagramWPFv3.0\VenDiagramWPFv2.0\VenDiagramWPFv2.0\obj\Debug\VenDiagramWPFv2.0.application
