@@ -1009,13 +1009,6 @@ namespace VenDiagramWPFv2._0
                     //A and B and C Intersection
                     ListboxOutput2.Items.Clear();
                     ListboxOutput2.Items.Add("A ∩ B ∩ C= {");
-                    if (hiddenAB.Items.Count < 1)
-                    {
-                        ListboxOutput2.Items.Add(",");
-                        ListboxOutput2.Items.RemoveAt(ListboxOutput2.Items.Count - 1);
-                    }
-                    else
-                    {
                         for (int Count = 0; Count < hiddenAB.Items.Count; Count++)
                         {
                             for (int Count2 = 0; Count2 < ListboxC.Items.Count; Count2++)
@@ -1024,17 +1017,16 @@ namespace VenDiagramWPFv2._0
                                 {
                                     ListboxOutput2.Items.Add(hiddenAB.Items[Count].ToString());
                                     ListboxOutput2.Items.Add(",");
+                                    ListboxOutput2.Items.RemoveAt(ListboxOutput2.Items.Count - 1);
                                 }
                                 else
                                 {
-                                    ListboxOutput2.Items.Add(",");
+                                ListboxOutput2.Items.Add(",");
+                                ListboxOutput2.Items.RemoveAt(ListboxOutput2.Items.Count - 1);
                                 }
                             }
                         }
-                    }
-                    ListboxOutput2.Items.RemoveAt(ListboxOutput2.Items.Count - 1);
-                    ListboxOutput2.Items.RemoveAt(ListboxOutput2.Items.Count - 1);
-                    ListboxOutput2.Items.RemoveAt(ListboxOutput2.Items.Count - 1);
+                    
                     ListboxOutput2.Items.Add("}");
                 }
 
